@@ -1,16 +1,27 @@
-\documentclass[12pt, openright, twoside, article, a4paper, brazil]{abntex2}
+\documentclass[12pt, openright, twoside, article, a4paper, english, brazil]{abntex2}
 
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{csquotes}
-\usepackage[alf]{abntex2cite}
 \usepackage{indentfirst}
 \usepackage{hyperref}
-\bibliography{uni.bib}
+
+% ---
+% Pacotes glossaries
+% ---
+\usepackage[subentrycounter,seeautonumberlist,nonumberlist=true]{glossaries}
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}
 
 \titulo{MeuPDV}
-\autor{Samuel H. O. Silva\and Jeffersom D. S. Bomfim\and Eduardo Silva Lopes}
+\autor{Samuel Henrique Oliveira da Silva\and\\
+  Jeffersom David da Silva Bomfim\and\\
+  Eduardo Silva Lopes}
 \data{31 de Maio de 2017}
 \instituicao{%
     Instituto Paula Souza
@@ -22,6 +33,7 @@
 \local{São Paulo}
 \tipotrabalho{Trabalho de Conclusão de Curso}
 \orientador[Prof.]{Rogério}
+\makeatletter
 \hypersetup{
 pdftitle={\@title},
 pdfauthor={\@author},
@@ -33,15 +45,26 @@ linkcolor=blue,
 citecolor=blue,
 urlcolor=blue
 }
+\makeatother
 
 \setlength{\parindent}{1.3cm}
 \setlength{\parskip}{0.2cm} % tente também \onelineskip
 \setlrmarginsandblock{3cm}{2cm}{*}
 \setulmarginsandblock{3cm}{2cm}{*}
 \checkandfixthelayout
+\bibdata{uni.bib}
+
+\makeindex
+
+\makeglossaries
+% --------------------------------------
+% - LISTA DE GLOSSÁRIO
+% --------------------------------------
+\newacronym{pdv}{PDV}{Ponto de Venda}
 
 \begin{document}
 \imprimircapa
+
 \imprimirfolhaderosto
 
 \begin{epigrafe}
@@ -49,29 +72,35 @@ urlcolor=blue
 \begin{flushright}
 \textit{‘‘Não me envergonho de mudar \\
 de ideia por que não me \\
-envergonho de pensar.\\
+envergonho de pensar".\\
 (FREUD. Sigmund)}
 \end{flushright}
 \end{epigrafe}
 \clearpage
 
-\begin{resumo}
-Hoje em dia, em mercados da comunidade, há um problema decorrente da falta de 
-conhecimento dos vendedores em relação ao complexo sistema que um mercado 
-necessita para poder embarcar no mundo real de hoje. Este implica na falta de 
-uma poupança que sirva como base diante as necessidades do consumidor de hoje 
-em dia. Por exemplo, o caixa. Não são todas as lojas que têm um todo 
-automatizado, com scanner a laser, um computador para administrar seu banco e 
-uma aplicação que gerencie seu negócio. Nem tanto, um grande número de 
-empregados para cuidar de seu trabalho árduo deixando-o focar no mais 
-importante. Diante desse contexto podemos notar como é delicado cuidar desta 
-área devido a suas complicações que todos acabam encarando quando se é 
-iniciante. Dentre elas está uma certificação, de ter os documentos oficiais em 
-dia.
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
 
+\textual
+\begin{resumo}
+\addcontentsline{toc}{chapter}{Resumo}
+  Hoje em dia em negócios de varejo de pequeno e médio porte, existe um problema
+causado pela falta de conhecimento dos vendedores e proprietários, em relação
+aos complexos sistemas, e regulamentações inerentes a administração de um ponto
+de venda. Causando uma má admistração por conta da falta de conhecimento e
+\ref{gomes1998}
+preparo que é geralmente o caso de pequenos proprietários de lojas. Coisas que
+presumimos serem garantidas em qualquer loja de varejo, para muitos pequenos
+empresários são luxos inviáveis; um dos exemplos mais simples de se dar são,
+caixas computadorizados com leitores a laser e softwares e servidores \gls{pdv}.
+Qualquer grande varejista possui esse conjunto básico, mas ainda não é uma
+realidade ubíqua nem mesmo nos grandes centros metropolitanos do Brasil, quem
+dira a partes mais remotas do nosso país sub-desenvolvido. 
+  
 \vspace{\onelineskip}
 \noindent
-\textbf{Palavras-chave}: neócio. venda. pequeno porte.
+\textbf{Palavras-chave}: negócio. venda. pequeno porte.
 \end{resumo}
 \clearpage
 
@@ -81,14 +110,9 @@ Nowdays, in small local bussinesses, there is a problem caused by the lack of
 knowledge of the retail sellers in relation to the complex system that a 
 store needs to enter in the real world business. That implies in the lack of a
 savings acount that serve as a base, given the nescessities of the 21st century
-consumer. For an example, the caixa. Não são todas as lojas que têm um todo 
-automatizado, com scanner a laser, um computador para administrar seu banco e 
-uma aplicação que gerencie seu negócio. Nem tanto, um grande número de 
-empregados para cuidar de seu trabalho árduo deixando-o focar no mais 
-importante. Diante desse contexto podemos notar como é delicado cuidar desta 
-área devido a suas complicações que todos acabam encarando quando se é 
-iniciante. Dentre elas está uma certificação, de ter os documentos oficiais em 
-dia.
+consumer. For an example, the checkout, it isn't every store that has a fully
+automated one, with laser scanners, a computer and a software to manage it. Most
+of the time
 
 \vspace{\onelineskip}
 \noindent
@@ -96,5 +120,49 @@ dia.
 \end{otherlanguage*}
 \end{resumo}
 
+\clearpage
+\postextual
+ 
+ 
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{uni.bib}
+
+\phantompart
+\renewcommand{\glossaryname}{Glossário}
+\renewcommand{\glossarypreamble}{Esta é a descrição do glossário. Experimente
+visualizar outros estilos de glossários, como o \texttt{altlisthypergroup},
+por exemplo.\\
+\\}
+
+% ---
+% Traduções para o ambiente glossaries
+% ---
+\providetranslation{Glossary}{Glossário}
+\providetranslation{Acronyms}{Siglas}
+\providetranslation{Notation (glossaries)}{Notação}
+\providetranslation{Description (glossaries)}{Descrição}
+\providetranslation{Symbol (glossaries)}{Símbolo}
+\providetranslation{Page List (glossaries)}{Lista de Páginas}
+\providetranslation{Symbols (glossaries)}{Símbolos}
+\providetranslation{Numbers (glossaries)}{Números} 
+% ---
+
+% ---
+% Estilo de glossário
+% ---
+% \setglossarystyle{index}
+% \setglossarystyle{altlisthypergroup}
+ \setglossarystyle{tree}
+
+
+% ---
+% Imprime o glossário
+% ---
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\glossaryname}
+\printglossary
 \end{document}
 
