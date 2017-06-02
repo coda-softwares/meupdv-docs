@@ -1,0 +1,15 @@
+auto/
+test.aux
+test.bbl
+test.bcf
+test.blg
+test.dvi
+test.fdb_latexmk
+test.fls
+test.glo
+test.ist
+test.log
+test.out.ps
+test.run.xml
+test.toc
+
