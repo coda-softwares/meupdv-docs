@@ -1,22 +1,15 @@
 \documentclass[12pt, openright, twoside, article, a4paper, english, brazil]{abntex2}
 
-\usepackage{lmodern}
 \usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 \usepackage[T1]{fontenc}
+\usepackage[backend=biber]{biblatex}
 \usepackage{csquotes}
 \usepackage{indentfirst}
 \usepackage{hyperref}
-
-% ---
-% Pacotes glossaries
-% ---
-\usepackage[subentrycounter,seeautonumberlist,nonumberlist=true]{glossaries}
-
-% ---
-% Pacotes de citações
-% ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}
+\usepackage[toc]{glossaries}
+\usepackage{blindtext}
+\addbibresource{uni.bib}
 
 \titulo{MeuPDV}
 \autor{Samuel Henrique Oliveira da Silva\and\\
@@ -25,7 +18,7 @@
 \data{31 de Maio de 2017}
 \instituicao{%
     Instituto Paula Souza
-    \par	
+    \par       
     ETEC Heliópolis}
 \preambulo{Trabalho de Conclusão de Curso apresentado como pré-requisito para 
     obtenção do Diploma de Técnico de Informática.}
@@ -39,130 +32,65 @@ pdftitle={\@title},
 pdfauthor={\@author},
 pdfsubject={\imprimirpreambulo},
 pdfkeywords={PALAVRAS}{CHAVE}{EM}{PORTUGUES},
-pdfcreator={LaTeX with abnTeX2},
+pdfcreator={MeuPDV},
 colorlinks=true,
-linkcolor=blue,
+linkcolor=black,
 citecolor=blue,
 urlcolor=blue
 }
-\makeatother
 
 \setlength{\parindent}{1.3cm}
 \setlength{\parskip}{0.2cm} % tente também \onelineskip
 \setlrmarginsandblock{3cm}{2cm}{*}
 \setulmarginsandblock{3cm}{2cm}{*}
 \checkandfixthelayout
-\bibdata{uni.bib}
 
-\makeindex
-
+% -----------------------------------------------
+% - Glossário
+% ----------------------------------------------
 \makeglossaries
-% --------------------------------------
-% - LISTA DE GLOSSÁRIO
-% --------------------------------------
-\newacronym{pdv}{PDV}{Ponto de Venda}
+\newacronym{pdv}{PDV}{Ponto de venda}
 
 \begin{document}
-\imprimircapa
+\imprimircapa{}
+\imprimirfolhaderosto{}
 
-\imprimirfolhaderosto
+\chapter*{Resumo\label{resumo}}
+Esse texto vem apresentar o software MeuPDV criado para o trabalho de conclusão
+de curso da ETEC heliópolis 2017, o maior objetivo do projeto é prover uma
+ferramenta descomplicada e eficiente para a adminstação de pequenas lojas. Tendo
+como público alvo pequenos empresários e empreendedores do setor de vendas em
+geral, um dos maiores pontos fortes da nossa solução é o quase inexistente
+investimento inicial, tanto no sentido de equipamento, já que ferramentas como
+lasers, mesas de caixa, computadoes, não são nescessárias e também pela
+popularidade massiva do sistema operacional android que permite utilizar os
+dispositivos que os funcionários teoricamente já possuem.
 
-\begin{epigrafe}
-\vspace*{\fill}
-\begin{flushright}
-\textit{‘‘Não me envergonho de mudar \\
-de ideia por que não me \\
-envergonho de pensar".\\
-(FREUD. Sigmund)}
-\end{flushright}
-\end{epigrafe}
-\clearpage
-
-\pdfbookmark[0]{\contentsname}{toc}
-\tableofcontents*
-\cleardoublepage
-
-\textual
-\begin{resumo}
-\addcontentsline{toc}{chapter}{Resumo}
-  Hoje em dia em negócios de varejo de pequeno e médio porte, existe um problema
-causado pela falta de conhecimento dos vendedores e proprietários, em relação
-aos complexos sistemas, e regulamentações inerentes a administração de um ponto
-de venda. Causando uma má admistração por conta da falta de conhecimento e
-\ref{gomes1998}
-preparo que é geralmente o caso de pequenos proprietários de lojas. Coisas que
-presumimos serem garantidas em qualquer loja de varejo, para muitos pequenos
-empresários são luxos inviáveis; um dos exemplos mais simples de se dar são,
-caixas computadorizados com leitores a laser e softwares e servidores \gls{pdv}.
-Qualquer grande varejista possui esse conjunto básico, mas ainda não é uma
-realidade ubíqua nem mesmo nos grandes centros metropolitanos do Brasil, quem
-dira a partes mais remotas do nosso país sub-desenvolvido. 
-  
 \vspace{\onelineskip}
 \noindent
 \textbf{Palavras-chave}: negócio. venda. pequeno porte.
-\end{resumo}
 \clearpage
 
-\begin{resumo}[Resume]
-\begin{otherlanguage*}{english}
-Nowdays, in small local bussinesses, there is a problem caused by the lack of 
-knowledge of the retail sellers in relation to the complex system that a 
-store needs to enter in the real world business. That implies in the lack of a
-savings acount that serve as a base, given the nescessities of the 21st century
-consumer. For an example, the checkout, it isn't every store that has a fully
-automated one, with laser scanners, a computer and a software to manage it. Most
-of the time
-
-\vspace{\onelineskip}
-\noindent
-\textbf{Keywords}: latex. abntex. publication de textes.
-\end{otherlanguage*}
-\end{resumo}
-
-\clearpage
-\postextual
- 
- 
-% ----------------------------------------------------------
-% Referências bibliográficas
-% ----------------------------------------------------------
-\bibliography{uni.bib}
-
-\phantompart
-\renewcommand{\glossaryname}{Glossário}
-\renewcommand{\glossarypreamble}{Esta é a descrição do glossário. Experimente
-visualizar outros estilos de glossários, como o \texttt{altlisthypergroup},
-por exemplo.\\
-\\}
-
-% ---
-% Traduções para o ambiente glossaries
-% ---
-\providetranslation{Glossary}{Glossário}
-\providetranslation{Acronyms}{Siglas}
-\providetranslation{Notation (glossaries)}{Notação}
-\providetranslation{Description (glossaries)}{Descrição}
-\providetranslation{Symbol (glossaries)}{Símbolo}
-\providetranslation{Page List (glossaries)}{Lista de Páginas}
-\providetranslation{Symbols (glossaries)}{Símbolos}
-\providetranslation{Numbers (glossaries)}{Números} 
-% ---
-
-% ---
-% Estilo de glossário
-% ---
-% \setglossarystyle{index}
-% \setglossarystyle{altlisthypergroup}
- \setglossarystyle{tree}
-
-
-% ---
-% Imprime o glossário
-% ---
+\tableofcontents
 \cleardoublepage
-\phantomsection
-\addcontentsline{toc}{chapter}{\glossaryname}
-\printglossary
+ 
+\textual
+\chapter{Introdução}
+Hoje em dia em negócios de varejo de pequeno e médio porte, existe um problema
+causado pela falta de conhecimento dos vendedores e proprietários, em relação
+aos complexos sistemas, e regulamentações inerentes a administração de um ponto
+de venda. Causando uma má admistração por conta da falta de conhecimento e
+preparo que é geralmente o caso de pequenos proprietários de
+lojas. Coisas que presumimos serem garantidas em qualquer loja de varejo, para
+muitos pequenos empresários são luxos inviáveis; um dos exemplos mais simples de
+se dar são, caixas computadorizados com leitores a laser e softwares e
+servidores \gls{pdv}. Qualquer grande varejista possui esse conjunto básico, mas
+ainda não é uma realidade ubíqua nem mesmo nos grandes centros metropolitanos do
+Brasi, quem  dira a partes mais remotas do nosso país sub-desenvolvido.  
+
+\postextual
+\clearpage
+\printbibliography
+
 \end{document}
 
